@@ -1,4 +1,4 @@
- {
+{
   "name": "katoassign",
   "private": true,
   "scripts": {
@@ -10,9 +10,16 @@
     "prettier-check": "prettier --check \"**/*.{ts,tsx,md}\"",
     "test": "turbo run test"
   },
+  "resolutions": {},
+  "packageManager": "pnpm@10.10.0",
   "devDependencies": {
+    "turbo": "^2.5.2"
   },
-  "resolutions": {
+  "dependencies": {
+    "next": "15.3.1"
   },
-  "packageManager": "pnpm@10.10.0"
+  "workspaces": [
+      "packages/*",
+      "apps/*"
+  ]
 }
