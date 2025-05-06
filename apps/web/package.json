@@ -1,15 +1,28 @@
 {
+  "name": "@webapp",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "pnpm db:up && pnpm db:push && npx next dev --turbopack",
+    "build": "npx next build",
+    "start": "npx next start",
+    "lint": "npx next lint",
+    "deploy": "docker-compose up web --build",
+    "db:down": "pnpm --filter=@db db:down",
+    "db:up": "npx dotenv-flow -e .env -- pnpm --filter=@db db:up",
+    "db:build": "npx dotenv-flow -e .env -- pnpm --filter=@db db:build",
+    "db:generate": "npx dotenv-flow -e .env -- pnpm --filter=@db generate",
+    "db:migrate": "npx dotenv-flow -e .env -- pnpm --filter=@db migrate",
+    "db:reset": "npx dotenv-flow -e .env -- pnpm --filter=@db format",
+    "db:push": "npx dotenv-flow -e .env -- pnpm --filter=@db push",
+    "db:studio": "npx dotenv-flow -e .env -- pnpm --filter=@db studio",
+    "db:format": "npx dotenv-flow -e .env -- pnpm --filter=@db format",
+    "db:seed": "pnpm --filter=@db seed"
   },
   "dependencies": {
-    "next": "15.3.1",
+    "dotenv": "^16.5.0",
+    "dotenv-flow-cli": "^1.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "turbo": "^2.5.2"
+    "next": "15.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -17,8 +30,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv-flow": "^4.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
+    "next": "15.3.1",
     "tailwindcss": "^4",
     "typescript": "^5.8.3"
   }
