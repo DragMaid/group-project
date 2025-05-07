@@ -10,7 +10,8 @@
     "push": "prisma db push --schema=prisma/schema",
     "studio": "prisma studio --schema=prisma/schema",
     "format": "prisma format --schema=prisma/schema",
-    "seed": "ts-node seed.ts"
+    "seed": "ts-node seed.ts",
+    "test": "pnpm jest --coverage"
   },
   "devDependencies": {
     "prisma": "^5.0.0",

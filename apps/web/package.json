@@ -5,6 +5,7 @@
     "build": "pnpm next build",
     "start": "pnpm next start",
     "lint": "pnpm next lint",
+    "test": "pnpm jest --coverage",
     "deploy": "docker-compose up web --build",
     "db:down": "pnpm --filter=@db db:down",
     "db:up": "pnpm dotenv-flow -e .env -- pnpm --filter=@db db:up",
