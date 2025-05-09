@@ -8,4 +8,4 @@ services:
       - "${PORT}:${PORT}"
     environment:
       DATABASE_URL: ${DATABASE_URL}
-    command: "npm run start"
+    command: "node ./server.js"
