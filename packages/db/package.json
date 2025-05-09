@@ -1,7 +1,7 @@
 {
   "name": "@db",
   "scripts": {
-    "db:up": "docker-compose up db -d",
+    "db:up": "docker-compose up db -d --remove-orphans",
     "db:down": "docker-compose db down",
     "db:build": "docker-compose build",
     "migrate": "prisma migrate dev --schema=prisma/schema",
@@ -13,12 +13,14 @@
     "seed": "ts-node seed.ts",
     "test": "pnpm jest --coverage"
   },
-  "devDependencies": {
-    "prisma": "^5.0.0",
-    "ts-node": "^10.0.0",
-    "typescript": "^5.0.0"
-  },
   "dependencies": {
-    "@prisma/client": "^5.22.0"
+    "@prisma/client": "^5.22.0",
+    "prisma": "^5.0.0",
+    "ts-node": "^10.0.0"
+  },
+  "devDependencies": {
+    "@prisma/client": "^5.22.0",
+    "prisma": "^5.0.0",
+    "ts-node": "^10.0.0"
   }
 }
