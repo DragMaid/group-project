@@ -2,15 +2,26 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
+RUN npm install pnpm -g
 RUN npm install --loglevel=verbose
 COPY . .
-RUN npm run build --loglevel=verbose
+RUN pnpm run build
 
 # Runtime stage
-FROM node:18-alpine
+FROM node:18-alpine AS runtime
 WORKDIR /app
-COPY --from=builder /app/.next .next
-COPY --from=builder /app/public public
-COPY --from=builder /app/package.json .
-COPY --from=builder /app/node_modules node_modules
+
+# Install all the production dependencies
+COPY --from=builder /app/package.json ./
+RUN npm install pnpm -g
+RUN pnpm install --prod --filter
+
+# Copy all the required web folders
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/next.config.mjs ./
+COPY --from=builder /app/styles ./styles
+
+# Set enviroment mode to production for optimization
+ENV NODE_ENV=production
 EXPOSE 3000
