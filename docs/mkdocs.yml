@@ -14,11 +14,25 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+
   feature:
     - navigation.path
     - navigation.indexes
     - navigation.tracking
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
 nav:
   - Introduction: introduction.md
-  #- Folder Structure:
-  
+  - Folder Structure: folder-structure.md
+  - Build system: build-system.md
+  - Git version control: git.md
+  - Dependencies management: dependency-manage.md
+  - Configurations: configurations.md
