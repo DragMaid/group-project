@@ -1,7 +1,0 @@
-{
-  "name": "@ui",
-  "description": "Shared UI components for web app",
-  "exports": {
-    "./components/*": "./components/*"
-  }}
-

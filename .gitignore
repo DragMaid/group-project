@@ -33,9 +33,6 @@
 # env files (can opt-in for committing if needed)
 .env*
 
-# turbo
-**/.turbo
-
 # vercel
 **/.vercel
 
