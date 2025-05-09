@@ -1,6 +1,6 @@
-const base = require('../../jest.config.base.cjs');
+import base from '../../jest.config.base.mjs';
 
-module.exports = {
+const jestConfig = {
   ...base,
   displayName: 'ui',
   rootDir: '.',
@@ -9,3 +9,4 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
+export default jestConfig;

@@ -1,6 +1,6 @@
-const base = require('../../jest.config.base.cjs');
+import base from '../../jest.config.base.mjs';
 
-module.exports = {
+const jestConfig = {
   ...base,
   displayName: 'web',
   rootDir: '.',
@@ -12,3 +12,4 @@ module.exports = {
   },
 };
 
+export default jestConfig;
