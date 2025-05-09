@@ -19,6 +19,7 @@
     "db:seed": "pnpm --filter=@db seed"
   },
   "dependencies": {
+    "@ui": "workspace:*",
     "dotenv": "^16.5.0",
     "dotenv-flow-cli": "^1.1.1",
     "react": "^19.1.0",
