@@ -1,5 +1,16 @@
 {
+  "name": "api",
+  "description": "Next.js backend service",
   "scripts": {
-    "test": "pnpm jest --coverage"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest --coverage",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.3.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
