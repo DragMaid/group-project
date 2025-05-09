@@ -1,0 +1,41 @@
+# Node modules
+node_modules
+**/node_modules
+
+# pnpm store
+.pnpm-store
+
+# Next.js build output (for the monorepo structure)
+.next
+**/.next
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Environment variables (sensitive data)
+.env
+.env.local
+.env.*.local
+
+# Docker files
+Dockerfile*
+.dockerignore
+
+# Editor-specific files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage
+
+# Build directories
+dist
+build
