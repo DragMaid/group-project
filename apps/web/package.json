@@ -1,12 +1,12 @@
 {
   "name": "@webapp",
   "scripts": {
-    "dev": "pnpm db:up && pnpm db:push && pnpm next dev --turbopack",
+    "dev": "pnpm next dev --turbopack",
     "build": "pnpm next build",
     "start": "pnpm next start",
     "lint": "pnpm next lint",
     "test": "pnpm jest --coverage",
-    "deploy": "docker-compose up web --build",
+    "deploy": "docker-compose up web --build --remove-orphans",
     "db:down": "pnpm --filter=@db db:down",
     "db:up": "pnpm dotenv-flow -e .env -- pnpm --filter=@db db:up",
     "db:build": "pnpm dotenv-flow -e .env -- pnpm --filter=@db db:build",
@@ -21,21 +21,16 @@
   "dependencies": {
     "dotenv": "^16.5.0",
     "dotenv-flow-cli": "^1.1.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.3.1"
+    "react": "^19.1.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "next": "15.3.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "dotenv-flow": "^4.1.0",
-    "eslint": "^9",
-    "eslint-config-next": "15.3.1",
-    "next": "15.3.1",
-    "tailwindcss": "^4",
-    "typescript": "^5.8.3"
+    "autoprefixer": "^10.4.21",
+    "eslint-config-next": "15.3.1"
   }
 }
