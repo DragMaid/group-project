@@ -36,3 +36,4 @@ nav:
   - Git version control: git.md
   - Dependencies management: dependency-manage.md
   - Configurations: configurations.md
+  - Testing: test.md
