@@ -1,7 +1,7 @@
-import base from '../../jest.config.base.mjs';
+import jestBaseConfig from '../../jest.config.base.mjs';
 
 const jestConfig = {
-  ...base,
+  ...jestBaseConfig,
   displayName: 'ui',
   rootDir: '.',
   testEnvironment: 'jsdom',
