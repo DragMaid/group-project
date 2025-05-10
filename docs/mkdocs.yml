@@ -37,3 +37,4 @@ nav:
   - Dependencies management: dependency-manage.md
   - Configurations: configurations.md
   - Testing: test.md
+  - Docker: docker.md
