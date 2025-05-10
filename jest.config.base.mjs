@@ -1,6 +1,7 @@
 /** @type {import('jest').Config} */
 const jestBaseConfig = {
   testEnvironment: 'node',
+  passWithNoTests: true,
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
       tsconfig: 'tsconfig.json',
