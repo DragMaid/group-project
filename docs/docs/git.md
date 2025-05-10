@@ -7,11 +7,15 @@ This document defines the **Git workflow**, **branch naming conventions**, and *
 ## ✅ Global Conventions
 
 - Use **feature branches** for all work.
-- All changes must go through a **Pull Request (PR)** into `dev`.
+- All changes must go through a **Pull Request (PR)** into `dev`, except for documentation-only branches.
 - The `dev` and `main` branches are **protected**:
-  - Cannot be pushed to directly
+  - Cannot be pushed to directly (except for allowed `docs/*` merges to `main`)
   - Must be updated via PR
 - Every PR **must be tested via Docker deploy** before merge.
+- All code merged into `main`:
+  - **Requires a PR**
+  - **Must be reviewed by at least one peer**
+  - Exception: `docs/*` branches can be locally merged and pushed directly to `main` with a merge commit.
 
 ---
 
@@ -88,8 +92,14 @@ Branches must follow the pattern:
 
 1. Ensure `dev` is stable and tested.
 2. Create a PR from `dev` → `main`.
-3. Merge using **Squash & Merge**.
+3. PR must be:
+   - Reviewed by at least one team member
+   - Merged using **Squash & Merge**
 4. Tag release (e.g. `v1.0.0`) and push.
+
+> 🔍 Exception: If the change is **only documentation (`docs/*`)**, you may:
+> - Merge locally into `main`
+> - Push the merge commit directly (no PR required)
 
 ---
 
@@ -98,26 +108,28 @@ Branches must follow the pattern:
 - Keep PRs **small and focused** (1 topic at a time).
 - Always **pull latest `dev`** before creating a new branch.
 - Run:
-  ```bash
-  pnpm install && pnpm dev
-  ```
-  to verify local setup works.
+   ```bash
+   pnpm install && pnpm dev
+   ```
+   to verify local setup works.
 - Add meaningful descriptions to all PRs.
 
 ---
 
 ## 🧾 Summary
 
-| Rule                          | Required |
-|-------------------------------|----------|
-| Branch follows `<role>/<content>` | ✅ Yes |
-| PR required to merge to `dev` | ✅ Yes |
-| `dev`/`main` are protected     | ✅ Yes |
-| Docker deploy before PR merge | ✅ Yes |
-| Conventional commits           | ✅ Yes |
-| Tests and lint must pass       | ✅ Yes |
+| Rule                                               | Required |
+|----------------------------------------------------|----------|
+| Branch follows `<role>/<content>`                 | ✅ Yes |
+| PR required to merge to `dev`                     | ✅ Yes |
+| PR required to merge to `main` (non-docs)         | ✅ Yes |
+| Peer review required before merging to `main`     | ✅ Yes |
+| `docs/*` can be merged locally to `main`          | ✅ Yes (with merge commit) |
+| `dev`/`main` are protected                         | ✅ Yes |
+| Docker deploy before PR merge                     | ✅ Yes |
+| Conventional commits                               | ✅ Yes |
+| Tests and lint must pass                           | ✅ Yes |
 
 ---
 
 Happy coding! 🚀
-
