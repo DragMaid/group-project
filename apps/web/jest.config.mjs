@@ -4,7 +4,7 @@ const jestConfig = {
   ...base,
   displayName: 'web',
   rootDir: '.',
-  testEnvironment: 'jsdom', // Required for React + browser APIs
+  testEnvironment: 'jsdom', 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testMatch: ['<rootDir>/**/*.(test|spec).ts?(x)'],
   moduleNameMapper: {
