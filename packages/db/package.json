@@ -14,7 +14,6 @@
     "test": "pnpm dotenv-flow -e .env -- pnpm jest --coverage"
   },
   "dependencies": {
-    "@root": "workspace:*",
     "@prisma/client": "^5.22.0",
     "prisma": "^5.0.0",
     "ts-node": "^10.0.0"
