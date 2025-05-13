@@ -159,6 +159,7 @@ pnpm --filter @webapp deploy
 ```
 
 This will:
+
 - Build the web container
 - Remove orphan containers
 - Spin up only the `web` service as defined in `docker-compose.yml`
@@ -209,26 +210,25 @@ This ensures environment variables are loaded from `.env`.
 
 ## 🧾 Scripts Summary
 
-| Script              | Description                                 |
-|---------------------|---------------------------------------------|
-| `dev`               | Start frontend dev server with Turbopack    |
-| `build`             | Build Next.js app                           |
-| `start`             | Start built Next.js app                     |
-| `lint`              | Lint frontend code                          |
-| `test`              | Run tests with Jest                         |
-| `deploy`            | Run web container with Docker Compose       |
-| `db:up`             | Start DB container                          |
-| `db:down`           | Stop DB container                           |
-| `db:build`          | Build DB Docker image                       |
-| `db:generate`       | Generate Prisma client                      |
-| `db:migrate`        | Run Prisma migrations                       |
-| `db:push`           | Push schema to DB (no migration)            |
-| `db:reset`          | Reset the database                          |
-| `db:studio`         | Launch Prisma Studio UI                     |
-| `db:format`         | Format Prisma schema                        |
-| `db:seed`           | Seed the database                           |
+| Script        | Description                              |
+| ------------- | ---------------------------------------- |
+| `dev`         | Start frontend dev server with Turbopack |
+| `build`       | Build Next.js app                        |
+| `start`       | Start built Next.js app                  |
+| `lint`        | Lint frontend code                       |
+| `test`        | Run tests with Jest                      |
+| `deploy`      | Run web container with Docker Compose    |
+| `db:up`       | Start DB container                       |
+| `db:down`     | Stop DB container                        |
+| `db:build`    | Build DB Docker image                    |
+| `db:generate` | Generate Prisma client                   |
+| `db:migrate`  | Run Prisma migrations                    |
+| `db:push`     | Push schema to DB (no migration)         |
+| `db:reset`    | Reset the database                       |
+| `db:studio`   | Launch Prisma Studio UI                  |
+| `db:format`   | Format Prisma schema                     |
+| `db:seed`     | Seed the database                        |
 
 ---
 
 Feel free to extend this guide for `@api`, `@ui`, or CI/CD workflows!
-

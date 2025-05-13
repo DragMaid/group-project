@@ -1,5 +1,9 @@
 {
+  "name": "@api",
+  "description": "Shared api code from backend",
+  "main": "index.ts",
   "scripts": {
-    "test": "pnpm jest --coverage"
+    "test": "pnpm jest --coverage",
+    "build": "echo 'no backend build yet'"
   }
 }

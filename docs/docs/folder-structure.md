@@ -1,7 +1,7 @@
-
 # Monorepo Architecture Overview
 
 ## Visual representation
+
 ```text
 apps/
 ├── api/
@@ -98,63 +98,67 @@ Your project already reflects some strong reasons for choosing a monorepo:
 
 ### Root
 
-| File/Folder              | Description |
-|--------------------------|-------------|
-| `jest.config.base.mjs`   | Shared base Jest config for all packages/apps. |
-| `package.json`           | Root-level config and scripts for workspace management. |
-| `pnpm-workspace.yaml`    | Defines the packages included in the monorepo. |
-| `turbo.json`             | Config file for [Turborepo](https://turbo.build/repo), used to cache and orchestrate builds/tests. |
-| `tsconfig.json`          | Base TypeScript config extended by other `tsconfig.json` files. |
+| File/Folder            | Description                                                                                        |
+| ---------------------- | -------------------------------------------------------------------------------------------------- |
+| `jest.config.base.mjs` | Shared base Jest config for all packages/apps.                                                     |
+| `package.json`         | Root-level config and scripts for workspace management.                                            |
+| `pnpm-workspace.yaml`  | Defines the packages included in the monorepo.                                                     |
+| `turbo.json`           | Config file for [Turborepo](https://turbo.build/repo), used to cache and orchestrate builds/tests. |
+| `tsconfig.json`        | Base TypeScript config extended by other `tsconfig.json` files.                                    |
 
 ---
 
 ### `apps/`
 
 #### `api/`
+
 Backend (Node.js/Express) application.
 
-| Folder/File         | Purpose |
-|---------------------|---------|
-| `controllers/`      | Route handlers (e.g., `userController.ts`) |
-| `middleware/`       | Express middleware (auth, logging, error handling) |
-| `routes/`           | API route definitions |
-| `scripts/`          | Utility scripts (e.g., DB migration runner) |
-| `seeders/`          | DB seeding logic |
-| `services/`         | Business logic layer |
-| `jest.config.mjs`   | Jest config specific to the API app |
-| `package.json`      | API-specific dependencies and scripts |
-| `tsconfig.json`     | TypeScript config for API project |
+| Folder/File       | Purpose                                            |
+| ----------------- | -------------------------------------------------- |
+| `controllers/`    | Route handlers (e.g., `userController.ts`)         |
+| `middleware/`     | Express middleware (auth, logging, error handling) |
+| `routes/`         | API route definitions                              |
+| `scripts/`        | Utility scripts (e.g., DB migration runner)        |
+| `seeders/`        | DB seeding logic                                   |
+| `services/`       | Business logic layer                               |
+| `jest.config.mjs` | Jest config specific to the API app                |
+| `package.json`    | API-specific dependencies and scripts              |
+| `tsconfig.json`   | TypeScript config for API project                  |
 
 📄 **Example**: `controllers/userController.ts`
+
 ```ts
 export const getUser = (req, res) => {
-  res.json({ user: { id: 1, name: 'Alice' } });
+  res.json({ user: { id: 1, name: "Alice" } });
 };
 ```
 
 ---
 
 #### `web/`
+
 Frontend application (likely using Next.js + Tailwind CSS).
 
-| Folder/File         | Purpose |
-|---------------------|---------|
-| `app/`              | Next.js App Router directory |
-| `components/`       | Reusable UI components |
-| `coverage/`         | Test coverage output |
-| `public/`           | Static assets (images, fonts) |
-| `styles/`           | Tailwind/global CSS |
-| `jest.setup.ts`     | Custom test environment setup |
-| `next.config.mjs`   | Next.js configuration |
-| `tailwind.config.mjs` | Tailwind configuration |
-| `jest.config.mjs`   | Jest config for the frontend |
-| `package.json`      | Dependencies specific to the frontend |
-| `tsconfig.json`     | TypeScript config for web app |
+| Folder/File           | Purpose                               |
+| --------------------- | ------------------------------------- |
+| `app/`                | Next.js App Router directory          |
+| `components/`         | Reusable UI components                |
+| `coverage/`           | Test coverage output                  |
+| `public/`             | Static assets (images, fonts)         |
+| `styles/`             | Tailwind/global CSS                   |
+| `jest.setup.ts`       | Custom test environment setup         |
+| `next.config.mjs`     | Next.js configuration                 |
+| `tailwind.config.mjs` | Tailwind configuration                |
+| `jest.config.mjs`     | Jest config for the frontend          |
+| `package.json`        | Dependencies specific to the frontend |
+| `tsconfig.json`       | TypeScript config for web app         |
 
 📄 **Example**: `jest.setup.ts`
+
 ```ts
-import '@testing-library/jest-dom';
-global.fetch = require('jest-fetch-mock');
+import "@testing-library/jest-dom";
+global.fetch = require("jest-fetch-mock");
 ```
 
 ---
@@ -162,36 +166,40 @@ global.fetch = require('jest-fetch-mock');
 ### `packages/`
 
 #### `db/`
+
 Prisma-based database package shared between `api` and possibly `web`.
 
-| File/Folder          | Purpose |
-|----------------------|---------|
-| `prisma/`            | Contains `schema.prisma` and generated client |
-| `client.ts`          | Prisma client wrapper/export |
-| `jest.config.mjs`    | Jest config for DB-specific logic |
-| `jest.setup.ts`      | DB-specific test setup (e.g., env vars) |
-| `seed.ts`            | Script to seed the database |
+| File/Folder       | Purpose                                       |
+| ----------------- | --------------------------------------------- |
+| `prisma/`         | Contains `schema.prisma` and generated client |
+| `client.ts`       | Prisma client wrapper/export                  |
+| `jest.config.mjs` | Jest config for DB-specific logic             |
+| `jest.setup.ts`   | DB-specific test setup (e.g., env vars)       |
+| `seed.ts`         | Script to seed the database                   |
 
 📄 **Example**: `client.ts`
+
 ```ts
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 export const prisma = new PrismaClient();
 ```
 
 ---
 
 #### `ui/`
+
 Shared UI component library.
 
-| Folder/File         | Purpose |
-|---------------------|---------|
-| `components/`       | Shared components (buttons, cards, etc.) |
-| `utils/`            | Utility functions (e.g., `formatDate`) |
-| `client.ts`         | Possibly exports SSR/client-safe UI wrappers |
-| `seed.ts`           | Seed mock UI data for Storybook/testing |
-| `jest.config.mjs`   | Jest config for this package |
+| Folder/File       | Purpose                                      |
+| ----------------- | -------------------------------------------- |
+| `components/`     | Shared components (buttons, cards, etc.)     |
+| `utils/`          | Utility functions (e.g., `formatDate`)       |
+| `client.ts`       | Possibly exports SSR/client-safe UI wrappers |
+| `seed.ts`         | Seed mock UI data for Storybook/testing      |
+| `jest.config.mjs` | Jest config for this package                 |
 
 📄 **Example**: `components/Button.tsx`
+
 ```tsx
 export const Button = ({ children }) => (
   <button className="px-4 py-2 rounded bg-blue-500 text-white">
@@ -207,11 +215,12 @@ export const Button = ({ children }) => (
 Every project (`api`, `web`, `db`, `ui`) has its **own `jest.config.mjs`**. Each test config can extend the base config (`jest.config.base.mjs`).
 
 📄 **Example**: `jest.config.base.mjs`
+
 ```js
 export default {
-  testEnvironment: 'node',
-  transform: { '^.+\\.tsx?$': 'ts-jest' },
-  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  testEnvironment: "node",
+  transform: { "^.+\\.tsx?$": "ts-jest" },
+  moduleFileExtensions: ["ts", "tsx", "js"],
 };
 ```
 
@@ -224,4 +233,3 @@ Your monorepo is well-organized for scaling:
 - ✅ Clear separation of apps (`api`, `web`) and shared packages (`db`, `ui`)
 - ✅ Smart tooling with `pnpm`, `turbo`, and Jest setup per project
 - ✅ Great base for CI/CD, deploy previews, and developer velocity
-

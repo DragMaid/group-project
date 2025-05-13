@@ -12,11 +12,11 @@ Testing ensures our code works as expected, remains stable with new changes, and
 
 ## 🔍 Types of Tests
 
-| Type             | Purpose                                                        | Priority |
-|------------------|----------------------------------------------------------------|----------|
-| **Unit Tests**   | Test small, isolated functions or components                   | 🟢 High  |
-| **Integration**  | Test interactions between components/services (e.g. DB + API)  | 🟡 Medium|
-| **E2E Tests**    | Test full workflows from start to finish (via UI/API)          | 🟠 Optional (if needed) |
+| Type            | Purpose                                                       | Priority                |
+| --------------- | ------------------------------------------------------------- | ----------------------- |
+| **Unit Tests**  | Test small, isolated functions or components                  | 🟢 High                 |
+| **Integration** | Test interactions between components/services (e.g. DB + API) | 🟡 Medium               |
+| **E2E Tests**   | Test full workflows from start to finish (via UI/API)         | 🟠 Optional (if needed) |
 
 ---
 
@@ -55,6 +55,7 @@ __tests__/
 ```
 
 You may also use:
+
 ```
 <file>.test.ts(x)  // preferred
 <file>.spec.ts(x)  // also accepted
@@ -75,10 +76,10 @@ export function add(a: number, b: number) {
 
 ```ts
 // utils/math.test.ts
-import { add } from './math';
+import { add } from "./math";
 
-describe('add()', () => {
-  it('adds two numbers', () => {
+describe("add()", () => {
+  it("adds two numbers", () => {
     expect(add(2, 3)).toBe(5);
   });
 });
@@ -97,12 +98,12 @@ export default function Button({ label }: { label: string }) {
 
 ```tsx
 // components/Button.test.tsx
-import { render, screen } from '@testing-library/react';
-import Button from './Button';
+import { render, screen } from "@testing-library/react";
+import Button from "./Button";
 
-test('renders a button with label', () => {
+test("renders a button with label", () => {
   render(<Button label="Click me" />);
-  expect(screen.getByText('Click me')).toBeInTheDocument();
+  expect(screen.getByText("Click me")).toBeInTheDocument();
 });
 ```
 
@@ -112,25 +113,25 @@ test('renders a button with label', () => {
 
 ```ts
 // pages/api/user.ts
-import type { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  res.status(200).json({ name: 'Jane Doe' });
+  res.status(200).json({ name: "Jane Doe" });
 }
 ```
 
 ```ts
 // pages/api/user.test.ts
-import handler from './user';
-import { createMocks } from 'node-mocks-http';
+import handler from "./user";
+import { createMocks } from "node-mocks-http";
 
-test('GET /api/user returns a name', async () => {
-  const { req, res } = createMocks({ method: 'GET' });
+test("GET /api/user returns a name", async () => {
+  const { req, res } = createMocks({ method: "GET" });
 
   await handler(req, res);
 
   expect(res._getStatusCode()).toBe(200);
-  expect(JSON.parse(res._getData())).toEqual({ name: 'Jane Doe' });
+  expect(JSON.parse(res._getData())).toEqual({ name: "Jane Doe" });
 });
 ```
 
@@ -208,4 +209,3 @@ All new PRs should maintain or improve test coverage.
 **Minimum required: 80%**
 
 Happy Testing! 💙
-

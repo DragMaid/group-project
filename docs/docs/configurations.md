@@ -9,15 +9,18 @@ This document explains the core configuration files used in the project: **Jest*
 ```ts
 /** @type {import('jest').Config} */
 const jestBaseConfig = {
-  testEnvironment: 'node', // Default environment for running backend-like tests
+  testEnvironment: "node", // Default environment for running backend-like tests
   transform: {
-    '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: 'tsconfig.json', // Use TS config to compile tests
-    }]
+    "^.+\\.(ts|tsx)$": [
+      "ts-jest",
+      {
+        tsconfig: "tsconfig.json", // Use TS config to compile tests
+      },
+    ],
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'], // Supported file types
-  testPathIgnorePatterns: ['/node_modules/', '/.next/', '/dist/'], // Ignore build/output paths
-  coveragePathIgnorePatterns: ['/node_modules/', '/.next/', '/dist/'] // Same for coverage reporting
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"], // Supported file types
+  testPathIgnorePatterns: ["/node_modules/", "/.next/", "/dist/"], // Ignore build/output paths
+  coveragePathIgnorePatterns: ["/node_modules/", "/.next/", "/dist/"], // Same for coverage reporting
 };
 
 export default jestBaseConfig;
@@ -28,17 +31,17 @@ export default jestBaseConfig;
 ## ✅ `jest.config.mjs` (Project-Specific)
 
 ```ts
-import base from '../../jest.config.base.mjs';
+import base from "../../jest.config.base.mjs";
 
 const jestConfig = {
   ...base, // Extend from base config
-  displayName: 'web', // Label in test output
-  rootDir: '.', // Root dir for Jest context
-  testEnvironment: 'jsdom', // Use browser-like DOM for frontend tests
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Additional setup per test file
-  testMatch: ['<rootDir>/**/*.(test|spec).ts?(x)'], // File pattern to look for tests
+  displayName: "web", // Label in test output
+  rootDir: ".", // Root dir for Jest context
+  testEnvironment: "jsdom", // Use browser-like DOM for frontend tests
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"], // Additional setup per test file
+  testMatch: ["<rootDir>/**/*.(test|spec).ts?(x)"], // File pattern to look for tests
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy', // Mock CSS imports for Jest
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy", // Mock CSS imports for Jest
   },
 };
 
@@ -127,9 +130,9 @@ export default eslintConfig;
 /** @type {import('tailwindcss').Config} */
 const tailwindConfig = {
   content: [
-    './app/**/*.{js,ts,jsx,tsx}', // Include `app/` pages/components
-    './pages/**/*.{js,ts,jsx,tsx}', // Include `pages/` directory
-    './components/**/*.{js,ts,jsx,tsx}', // Include components folder
+    "./app/**/*.{js,ts,jsx,tsx}", // Include `app/` pages/components
+    "./pages/**/*.{js,ts,jsx,tsx}", // Include `pages/` directory
+    "./components/**/*.{js,ts,jsx,tsx}", // Include components folder
   ],
   theme: {
     extend: {}, // Custom theme extensions (colors, fonts, etc.)
@@ -149,7 +152,7 @@ export default tailwindConfig;
 
 const nextConfig = {
   reactStrictMode: true, // Warn for unsafe React practices
-  output: 'standalone', // Allow deployment as standalone Docker container
+  output: "standalone", // Allow deployment as standalone Docker container
 };
 
 export default nextConfig;
@@ -159,14 +162,14 @@ export default nextConfig;
 
 ## 💡 Summary Table
 
-| Config File            | Purpose                              |
-|------------------------|--------------------------------------|
-| `jest.config.base.mjs` | Shared Jest base config              |
-| `jest.config.mjs`      | Jest config customized per package   |
-| `tsconfig.base.json`   | Shared TypeScript settings           |
+| Config File            | Purpose                                 |
+| ---------------------- | --------------------------------------- |
+| `jest.config.base.mjs` | Shared Jest base config                 |
+| `jest.config.mjs`      | Jest config customized per package      |
+| `tsconfig.base.json`   | Shared TypeScript settings              |
 | `tsconfig.json`        | Package-specific overrides (e.g. `web`) |
-| `eslint.config.mjs`    | Linting rules (Next.js + TypeScript) |
-| `tailwind.config.js`   | TailwindCSS setup for styling        |
-| `next.config.mjs`      | Next.js behavior and optimizations   |
+| `eslint.config.mjs`    | Linting rules (Next.js + TypeScript)    |
+| `tailwind.config.js`   | TailwindCSS setup for styling           |
+| `next.config.mjs`      | Next.js behavior and optimizations      |
 
 ---
