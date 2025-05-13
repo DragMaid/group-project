@@ -32,6 +32,9 @@ importers:
       eslint:
         specifier: ^9.26.0
         version: 9.26.0(jiti@2.4.2)
+      eslint-plugin-jest:
+        specifier: ^28.11.0
+        version: 28.11.0(@typescript-eslint/eslint-plugin@8.32.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.26.0(jiti@2.4.2))(jest@29.7.0(@types/node@20.17.46)(ts-node@10.9.2(@types/node@20.17.46)(typescript@5.8.3)))(typescript@5.8.3)
       eslint-plugin-prettier:
         specifier: ^5.4.0
         version: 5.4.0(eslint@9.26.0(jiti@2.4.2))(prettier@3.5.3)
@@ -79,12 +82,18 @@ importers:
       dotenv-flow-cli:
         specifier: ^1.1.1
         version: 1.1.1
+      eslintconfig:
+        specifier: workspace:*
+        version: link:../../packages/eslintconfig
       react:
         specifier: ^19.1.0
         version: 19.1.0
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      tsconfig:
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.6
@@ -130,11 +139,18 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
 
+  packages/eslintconfig: {}
+
+  packages/tsconfig: {}
+
   packages/ui:
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.6
         version: 4.1.6
+      eslintconfig:
+        specifier: workspace:*
+        version: link:../eslintconfig
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -1809,6 +1825,19 @@ packages:
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8 || ^9
     peerDependenciesMeta:
       '@typescript-eslint/parser':
+        optional: true
+
+  eslint-plugin-jest@28.11.0:
+    resolution: {integrity: sha512-QAfipLcNCWLVocVbZW8GimKn5p5iiMcgGbRzz8z/P5q7xw+cNEpYqyzFMtIF/ZgF2HLOyy+dYBut+DoYolvqig==}
+    engines: {node: ^16.10.0 || ^18.12.0 || >=20.0.0}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': ^6.0.0 || ^7.0.0 || ^8.0.0
+      eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
+      jest: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/eslint-plugin':
+        optional: true
+      jest:
         optional: true
 
   eslint-plugin-jsx-a11y@6.10.2:
@@ -5562,6 +5591,17 @@ snapshots:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+
+  eslint-plugin-jest@28.11.0(@typescript-eslint/eslint-plugin@8.32.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.26.0(jiti@2.4.2))(jest@29.7.0(@types/node@20.17.46)(ts-node@10.9.2(@types/node@20.17.46)(typescript@5.8.3)))(typescript@5.8.3):
+    dependencies:
+      '@typescript-eslint/utils': 8.32.0(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint: 9.26.0(jiti@2.4.2)
+    optionalDependencies:
+      '@typescript-eslint/eslint-plugin': 8.32.0(@typescript-eslint/parser@8.32.0(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.26.0(jiti@2.4.2))(typescript@5.8.3)
+      jest: 29.7.0(@types/node@20.17.46)(ts-node@10.9.2(@types/node@20.17.46)(typescript@5.8.3))
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   eslint-plugin-jsx-a11y@6.10.2(eslint@9.26.0(jiti@2.4.2)):
     dependencies:
