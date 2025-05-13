@@ -7,7 +7,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 RUN pnpm install --frozen-lockfile --ignore-scripts
 
-#RUN pnpm run test --filter @webapp
+RUN pnpm run test --filter @webapp
 RUN cd apps/web && pnpm run build 
  
 # Runtime stage
