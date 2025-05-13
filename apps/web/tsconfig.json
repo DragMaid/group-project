@@ -4,8 +4,10 @@
     "outDir": "dist"
   },
   "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "app/**/*.tsx",
     "next-env.d.ts",
-    "src",
     ".next/types/**/*.ts"
   ],
   "exclude": [
