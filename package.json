@@ -13,7 +13,7 @@
         "prettier-check": "prettier --check \"**/*.{ts,tsx,md}\"",
         "db:up": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/db.docker-compose.yaml up db -d --remove-orphans --build",
         "db:down": "docker-compose -f ./docker/db.docker-compose.yaml db down",
-        "db:log": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/web/docker-compose.yaml db logs -f",
+        "db:log": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/db.docker-compose.yaml logs db",
         "db:generate": "pnpm dotenv-flow -e .env -- pnpm --filter=@db generate",
         "db:migrate": "pnpm dotenv-flow -e .env -- pnpm --filter=@db migrate",
         "db:reset": "pnpm dotenv-flow -e .env -- pnpm --filter=@db format",
@@ -23,7 +23,7 @@
         "db:seed": "pnpm --filter=@db seed",
         "web:up": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/web.docker-compose.yaml up web --remove-orphans --build",
         "web:down": "docker-compose -f ./docker/web/docker-compose.yaml web down",
-        "web:log": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/web/docker-compose.yaml web logs -f",
+        "web:log": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/web.docker-compose.yaml logs web",
         "docker:clean": "docker system prune -a -f --volumes"
     },
     "resolutions": {},
