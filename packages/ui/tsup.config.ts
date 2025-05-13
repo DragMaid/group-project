@@ -1,20 +1,16 @@
 import { defineConfig } from "tsup";
-import fs from "fs";
+import fg from "fast-glob";
 
-const hasSourceFiles =
-  fs.existsSync("src") &&
-  fs
-    .readdirSync("src")
-    .some((file) => file.endsWith(".ts") || file.endsWith(".tsx"));
+export default defineConfig(async () => {
+  const files = await fg(["components/**/*.{ts,tsx}"]);
 
-export default defineConfig(() => {
-  if (!hasSourceFiles) {
+  if (files.length === 0) {
     //console.log("No source files found. Skipping build.");
     return [];
   }
 
   return {
-    entry: ["./components/**/*.{ts,tsx}"],
+    entry: files,
     format: ["esm"],
     dts: true,
     sourcemap: true,
