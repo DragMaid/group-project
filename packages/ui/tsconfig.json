@@ -10,8 +10,11 @@
     "esModuleInterop": true,
     "moduleResolution": "bundler", // if you're using latest bundler-friendly resolution
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "lib": ["esnext"],
+    "types": ["node"]
   },
-  "include": ["components"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["dist", "node_modules"]
 }
 

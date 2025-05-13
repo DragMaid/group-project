@@ -1,4 +1,4 @@
-import eslintBaseConfig from "../../eslint.config.mjs";
+import eslintBaseConfig from "eslintconfig/eslint.base.config.mjs";
 
 const eslintConfig = [
   // Bring in the base rules
