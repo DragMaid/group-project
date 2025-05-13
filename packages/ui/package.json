@@ -1,0 +1,23 @@
+{
+  "name": "@ui",
+  "description": "Shared UI components for web app",
+  "exports": {
+    "./components/*": "./components/*"
+  },
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint . --config ./eslint.config.mjs",
+    "dev": "tsup --watch",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tsconfig": "workspace:*"
+  },
+  "devDependencies": {
+    "eslintconfig": "workspace:*",
+    "@tailwindcss/postcss": "^4.1.6",
+    "tailwindcss": "^4.1.6",
+    "react": "^19.1.0",
+    "tsup": "^6.1.3"
+  }
+}

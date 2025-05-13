@@ -1,0 +1,21 @@
+{
+  "extends": "tsconfig/tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve", // ✔️ keep JSX for Next.js to handle
+    "module": "ESNext",
+    "target": "ESNext",
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "dist",
+    "emitDeclarationOnly": false,
+    "esModuleInterop": true,
+    "moduleResolution": "bundler", // if you're using latest bundler-friendly resolution
+    "skipLibCheck": true,
+    "strict": true,
+    "lib": ["esnext"],
+    "types": ["node"]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
+
