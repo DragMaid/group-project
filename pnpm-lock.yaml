@@ -66,7 +66,11 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
-  apps/api: {}
+  apps/api:
+    dependencies:
+      tsconfig:
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
 
   apps/web:
     dependencies:
@@ -131,6 +135,9 @@ importers:
       ts-node:
         specifier: ^10.0.0
         version: 10.9.2(@types/node@20.17.46)(typescript@5.8.3)
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
     devDependencies:
       dotenv:
         specifier: ^16.5.0
@@ -144,6 +151,10 @@ importers:
   packages/tsconfig: {}
 
   packages/ui:
+    dependencies:
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.6
