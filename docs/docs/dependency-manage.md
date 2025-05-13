@@ -144,15 +144,14 @@ pnpm install
 
 ## ✅ TL;DR Commands
 
-| Use Case                             | Command                                           |
-|--------------------------------------|---------------------------------------------------|
-| Add shared dev tool to root          | `pnpm add -Dw eslint`                            |
-| Add runtime dep to `web` package     | `pnpm add react --filter=@webapp`                |
-| Add dev-only dep to `db` package     | `pnpm add -D prisma --filter=@db`                |
-| Install production-only deps         | `pnpm install --prod`                            |
-| Run command for specific package     | `pnpm --filter=@webapp build`                    |
+| Use Case                         | Command                           |
+| -------------------------------- | --------------------------------- |
+| Add shared dev tool to root      | `pnpm add -Dw eslint`             |
+| Add runtime dep to `web` package | `pnpm add react --filter=@webapp` |
+| Add dev-only dep to `db` package | `pnpm add -D prisma --filter=@db` |
+| Install production-only deps     | `pnpm install --prod`             |
+| Run command for specific package | `pnpm --filter=@webapp build`     |
 
 ---
 
 For more, visit [pnpm.io](https://pnpm.io) or check the `.npmrc` and `pnpm-workspace.yaml` in the repo root.
-

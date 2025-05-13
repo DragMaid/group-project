@@ -52,7 +52,7 @@ docker compose version
 ```
 
 > 🧠 You may need to add your user to the `docker` group:
-> 
+>
 > ```bash
 > sudo usermod -aG docker $USER
 > ```
@@ -123,17 +123,17 @@ services:
 - 🛑 `restart: unless-stopped` ensures it auto-restarts unless manually stopped.
 
 ```yaml
-  db:
-    image: postgres:15.6-bullseye
-    restart: always
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-    ports:
-      - "${LOCAL_PORT}:${LOCAL_PORT}"
+db:
+  image: postgres:15.6-bullseye
+  restart: always
+  environment:
+    POSTGRES_USER: ${POSTGRES_USER}
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    POSTGRES_DB: ${POSTGRES_DB}
+  volumes:
+    - postgres-data:/var/lib/postgresql/data
+  ports:
+    - "${LOCAL_PORT}:${LOCAL_PORT}"
 ```
 
 - 🐘 **db** uses the official PostgreSQL image with volume for persistent data.
@@ -244,5 +244,3 @@ docker compose up --build
 ```
 
 This ensures that everything works together — Next.js app + database — just like in production.
-
-

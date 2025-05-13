@@ -29,30 +29,31 @@ Branches must follow the pattern:
 
 ### 🎭 Role Prefixes
 
-| Prefix    | Purpose                          |
-|-----------|----------------------------------|
-| `front/`  | Frontend-related changes (Next.js) |
-| `back/`   | Backend/API work (e.g. controllers, routes) |
-| `db/`     | Database/Prisma/migrations        |
-| `docs/`   | Documentation updates             |
-| `chore/`  | Tooling, setup, CI, formatting    |
-| `fix/`    | Bugfixes (include in relevant scope) |
+| Prefix   | Purpose                                     |
+| -------- | ------------------------------------------- |
+| `front/` | Frontend-related changes (Next.js)          |
+| `back/`  | Backend/API work (e.g. controllers, routes) |
+| `db/`    | Database/Prisma/migrations                  |
+| `docs/`  | Documentation updates                       |
+| `chore/` | Tooling, setup, CI, formatting              |
+| `fix/`   | Bugfixes (include in relevant scope)        |
 
 ### 🧠 Examples
 
-| Branch Name         | Meaning                             |
-|---------------------|-------------------------------------|
-| `front/test`        | Frontend test-related changes       |
-| `back/authentication` | Backend authentication module      |
-| `db/migration-users`  | DB migration for users table       |
-| `docs/readme-update`  | Updating README or docs            |
-| `chore/turbo-config`  | Changing Turborepo setup           |
+| Branch Name           | Meaning                       |
+| --------------------- | ----------------------------- |
+| `front/test`          | Frontend test-related changes |
+| `back/authentication` | Backend authentication module |
+| `db/migration-users`  | DB migration for users table  |
+| `docs/readme-update`  | Updating README or docs       |
+| `chore/turbo-config`  | Changing Turborepo setup      |
 
 ---
 
 ## 🔁 Pull Request Workflow
 
 1. **Create a branch** from `dev`:
+
    ```bash
    git checkout dev
    git pull origin dev
@@ -60,6 +61,7 @@ Branches must follow the pattern:
    ```
 
 2. **Commit changes** using conventional commit format:
+
    ```
    feat(front): add login form component
    fix(back): handle missing auth token
@@ -67,16 +69,19 @@ Branches must follow the pattern:
    ```
 
 3. **Test the code with Docker** before opening PR:
+
    ```bash
    pnpm --filter @webapp deploy
    ```
 
 4. **Push your branch** and open a PR into `dev`:
+
    ```bash
    git push -u origin front/new-feature
    ```
 
 5. Review will ensure:
+
    - Code passes CI
    - `pnpm test` runs clean
    - Docker deployment works
@@ -98,6 +103,7 @@ Branches must follow the pattern:
 4. Tag release (e.g. `v1.0.0`) and push.
 
 > 🔍 Exception: If the change is **only documentation (`docs/*`)**, you may:
+>
 > - Merge locally into `main`
 > - Push the merge commit directly (no PR required)
 
@@ -108,27 +114,27 @@ Branches must follow the pattern:
 - Keep PRs **small and focused** (1 topic at a time).
 - Always **pull latest `dev`** before creating a new branch.
 - Run:
-   ```bash
-   pnpm install && pnpm dev
-   ```
-   to verify local setup works.
+  ```bash
+  pnpm install && pnpm dev
+  ```
+  to verify local setup works.
 - Add meaningful descriptions to all PRs.
 
 ---
 
 ## 🧾 Summary
 
-| Rule                                               | Required |
-|----------------------------------------------------|----------|
-| Branch follows `<role>/<content>`                 | ✅ Yes |
-| PR required to merge to `dev`                     | ✅ Yes |
-| PR required to merge to `main` (non-docs)         | ✅ Yes |
-| Peer review required before merging to `main`     | ✅ Yes |
-| `docs/*` can be merged locally to `main`          | ✅ Yes (with merge commit) |
-| `dev`/`main` are protected                         | ✅ Yes |
-| Docker deploy before PR merge                     | ✅ Yes |
-| Conventional commits                               | ✅ Yes |
-| Tests and lint must pass                           | ✅ Yes |
+| Rule                                          | Required                   |
+| --------------------------------------------- | -------------------------- |
+| Branch follows `<role>/<content>`             | ✅ Yes                     |
+| PR required to merge to `dev`                 | ✅ Yes                     |
+| PR required to merge to `main` (non-docs)     | ✅ Yes                     |
+| Peer review required before merging to `main` | ✅ Yes                     |
+| `docs/*` can be merged locally to `main`      | ✅ Yes (with merge commit) |
+| `dev`/`main` are protected                    | ✅ Yes                     |
+| Docker deploy before PR merge                 | ✅ Yes                     |
+| Conventional commits                          | ✅ Yes                     |
+| Tests and lint must pass                      | ✅ Yes                     |
 
 ---
 
