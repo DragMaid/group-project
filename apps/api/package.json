@@ -5,5 +5,8 @@
   "scripts": {
     "test": "pnpm jest --coverage",
     "build": "echo 'no backend build yet'"
+  },
+  "dependencies": {
+    "tsconfig": "workspace:*"
   }
 }
