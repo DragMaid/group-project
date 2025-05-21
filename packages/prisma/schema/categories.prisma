@@ -1,0 +1,18 @@
+model Subject {
+  id          Int     @id @default(autoincrement()) @map("subject_code")
+  name        String
+  description String?
+
+  department   Department @relation(fields: [departmentId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  departmentId Int
+
+  posts Post[]
+}
+
+model Department {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String?
+
+  subjects Subject[]
+}
