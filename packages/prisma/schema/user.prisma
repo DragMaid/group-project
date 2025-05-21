@@ -1,0 +1,28 @@
+model User {
+  id        String   @id @map("linked_account")
+  name      String   @unique
+  avatarUrl String   @default("")
+  createdAt DateTime @default(now())
+
+  followers Follow[] @relation("FollowerRelation")
+  followed  Follow[] @relation("FollowedRelation")
+
+  posts          Post[]
+  ratings        Rating[]
+  comments       Comment[]
+  bookmarks      Bookmark[]
+  contentReports ContentReport[]
+  notifications  Notification[]
+}
+
+model Follow {
+  follower   User   @relation("FollowerRelation", fields: [followerId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  followerId String
+
+  followed   User   @relation("FollowedRelation", fields: [followedId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  followedId String
+
+  createdAt DateTime @default(now())
+
+  @@id([followerId, followedId])
+}
