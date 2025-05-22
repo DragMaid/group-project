@@ -8,7 +8,7 @@ model Post {
   creatorId String
 
   subject   Subject @relation(fields: [subjectId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  subjectId Int
+  subjectId String
 
   postContents   PostContent[]
   ratings        Rating[]
@@ -19,10 +19,10 @@ model Post {
 
 model PostContent {
   post   Post   @relation(fields: [postId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  postId String @unique
+  postId String
 
   file   File   @relation(fields: [fileId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  fileId String @unique
+  fileId String
 
   @@id([postId, fileId])
 }
