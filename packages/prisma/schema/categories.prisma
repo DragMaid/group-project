@@ -1,5 +1,5 @@
 model Subject {
-  id          Int     @id @default(autoincrement()) @map("subject_code")
+  id          String  @id @map("subject_code")
   name        String
   description String?
 
@@ -11,7 +11,7 @@ model Subject {
 
 model Department {
   id          Int     @id @default(autoincrement())
-  name        String
+  name        String  @unique
   description String?
 
   subjects Subject[]
