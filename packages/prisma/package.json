@@ -8,7 +8,7 @@
     "studio": "prisma studio --schema=schema",
     "format": "prisma format --schema=schema",
     "test": "pnpm jest --coverage",
-    "seed": "ts-node seed.ts"
+    "seed": "tsc && node ./dist/seed.js"
   },
   "dependencies": {
     "tsconfig": "workspace:*",
