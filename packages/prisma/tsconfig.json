@@ -2,7 +2,16 @@
   "extends": "tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": "./",
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", ".turbo", "coverage"]
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".turbo",
+    "coverage",
+    "dist",
+    "migrations"
+  ]
 }
