@@ -10,7 +10,7 @@
         "test": "turbo test",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "prettier-check": "prettier --check \"**/*.{ts,tsx,md}\"",
-        "db:test": "pnpm dotenv-flow -e .env -- pnpm test --filter=@db",
+        "db:test": "pnpm test --filter=@db",
         "db:up": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/db.docker-compose.yaml up db -d --remove-orphans --build",
         "db:down": "docker-compose -f ./docker/db.docker-compose.yaml db down",
         "db:log": "pnpm dotenv-flow -e .env -- docker-compose -f ./docker/db.docker-compose.yaml logs db",
