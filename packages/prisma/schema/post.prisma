@@ -27,6 +27,8 @@ model PostContent {
   @@id([postId, fileId])
 }
 
+// TODO: remove file url and use id as path
+
 model File {
   id        String   @id @default(cuid())
   name      String

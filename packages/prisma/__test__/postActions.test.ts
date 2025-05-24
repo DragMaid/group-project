@@ -31,7 +31,7 @@ describe("Post Actions models", () => {
     const department = await createTestDepartment();
     const subject = await createTestSubject(department.id);
     post = await createTestPost(user.id, subject.id);
-    const rating = await createTestRating(post.id, user.id, { score: 4 });
+    const rating = await createTestRating(user.id, post.id, { score: 4 });
 
     expect(rating.userId).toBe(user.id);
     expect(rating.postId).toBe(post.id);
@@ -39,7 +39,7 @@ describe("Post Actions models", () => {
   });
 
   test("should create a comment for a post", async () => {
-    const comment = await createTestComment(post.id, user.id, {
+    const comment = await createTestComment(user.id, post.id, {
       content: "This is a test comment.",
     });
 
@@ -49,7 +49,7 @@ describe("Post Actions models", () => {
   });
 
   test("should create a bookmark for a post", async () => {
-    const bookmark = await createTestBookmark(post.id, user.id, {
+    const bookmark = await createTestBookmark(user.id, post.id, {
       name: "Test Bookmark",
     });
 
