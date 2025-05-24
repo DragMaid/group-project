@@ -19,8 +19,8 @@ describe("Subject model", () => {
   let subject: any;
 
   test("should create a subject with valid data", async () => {
-    const department = await createTestDepartment();
-    const subject = await createTestSubject(department.id, {
+    department = await createTestDepartment();
+    subject = await createTestSubject(department.id, {
       id: "CP1401",
       name: "Programming 1",
     });
