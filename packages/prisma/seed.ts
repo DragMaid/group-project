@@ -12,7 +12,7 @@ import {
   createTestContentReport,
   createTestDepartment,
   createTestNotification,
-} from "./testUtils.ts";
+} from "./testUtils";
 
 const prisma = new PrismaClient();
 
