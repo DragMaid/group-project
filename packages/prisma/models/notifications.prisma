@@ -4,7 +4,6 @@ model Notification {
   header    String
   content   String
   createdAt DateTime @default(now())
-
-  user   User   @relation(fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-  userId String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
