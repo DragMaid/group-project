@@ -5,24 +5,22 @@
     "generate": "prisma generate --schema=schema",
     "reset": "prisma migrate reset --schema=schema",
     "push": "prisma db push --schema=schema",
+    "pull": "prisma db pull --schema=schema",
     "studio": "prisma studio --schema=schema",
     "format": "prisma format --schema=schema",
     "test": "pnpm jest --coverage",
-    "seed": "tsc && node ./dist/seed.js"
+    "seed": "pnpm ts-node ./seed.ts"
   },
   "dependencies": {
     "tsconfig": "workspace:*",
     "eslintconfig": "workspace:*",
-    "@prisma/client": "^5.22.0",
-    "prisma": "^5.0.0",
-    "ts-node": "^10.0.0"
+    "ts-node": "^10.0.0",
+    "@prisma/client": "^6.8.2",
+    "prisma": "^6.8.2"
   },
   "devDependencies": {
-    "@prisma/client": "^5.22.0",
-    "dotenv": "^16.5.0",
-    "dotenv-flow-cli": "^1.1.1",
-    "prisma": "^5.0.0",
-    "ts-node": "^10.0.0"
-  },
-  "type": "module"
+    "ts-node": "^10.0.0",
+    "@prisma/client": "^6.8.2",
+    "prisma": "^6.8.2"
+  }
 }
