@@ -8,7 +8,7 @@
     "pull": "prisma db pull",
     "studio": "prisma studio",
     "format": "prisma format",
-    "test": "pnpm jest --coverage",
+    "test": "pnpm jest --coverage --runInBand",
     "seed": "pnpm ts-node ./seed.ts"
   },
   "dependencies": {
