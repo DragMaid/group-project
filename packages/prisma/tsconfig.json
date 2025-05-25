@@ -2,16 +2,25 @@
   "extends": "tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
   },
   "ts-node": {
     "transpileOnly": true,
     "files": true,
-    "require": ["dotenv-flow/config"],
     "compilerOptions": {
       "module": "CommonJS"
     }
   },
-  "include": ["./**/*.ts"],
-  "exclude": ["node_modules", ".turbo", "coverage", "dist", "migrations"]
+  "include": [
+    "./**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".turbo",
+    "coverage",
+    "dist",
+    "migrations"
+  ]
 }
