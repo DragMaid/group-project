@@ -1,15 +1,18 @@
 /** @type {import('jest').Config} */
 const jestBaseConfig = {
-  testEnvironment: 'node',
+  testEnvironment: "node",
   passWithNoTests: true,
   transform: {
-    '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
-    }]
+    "^.+\\.(ts|tsx)$": [
+      "ts-jest",
+      {
+        tsconfig: "tsconfig.json",
+      },
+    ],
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  testPathIgnorePatterns: ['/node_modules/', '/.next/', '/dist/'],
-  coveragePathIgnorePatterns: ['/node_modules/', '/.next/', '/dist/']
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
+  testPathIgnorePatterns: ["/node_modules/", "/.next/", "/dist/"],
+  coveragePathIgnorePatterns: ["/node_modules/", "/.next/", "/dist/"],
 };
 
 export default jestBaseConfig;
