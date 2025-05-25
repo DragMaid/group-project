@@ -1,14 +1,14 @@
-import jestBaseConfig from '../../jest.config.base.mjs';
+import jestBaseConfig from "../../jest.config.base.mjs";
 
 const jestConfig = {
   ...jestBaseConfig,
-  displayName: 'web',
-  rootDir: '.',
-  testEnvironment: 'jsdom', 
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  testMatch: ['<rootDir>/**/*.(test|spec).ts?(x)'],
+  displayName: "web",
+  rootDir: ".",
+  testEnvironment: "jsdom",
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  testMatch: ["<rootDir>/**/*.(test|spec).ts?(x)"],
   moduleNameMapper: {
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
   },
 };
 
