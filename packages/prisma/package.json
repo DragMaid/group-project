@@ -1,13 +1,13 @@
 {
   "name": "@db",
   "scripts": {
-    "migrate": "prisma migrate dev --schema=schema",
-    "generate": "prisma generate --schema=schema",
-    "reset": "prisma migrate reset --schema=schema",
-    "push": "prisma db push --schema=schema",
-    "pull": "prisma db pull --schema=schema",
-    "studio": "prisma studio --schema=schema",
-    "format": "prisma format --schema=schema",
+    "migrate": "prisma migrate dev",
+    "generate": "prisma generate",
+    "reset": "prisma migrate reset",
+    "push": "prisma db push",
+    "pull": "prisma db pull",
+    "studio": "prisma studio",
+    "format": "prisma format",
     "test": "pnpm jest --coverage",
     "seed": "pnpm ts-node ./seed.ts"
   },
@@ -22,5 +22,8 @@
     "ts-node": "^10.0.0",
     "@prisma/client": "^6.8.2",
     "prisma": "^6.8.2"
+  },
+  "prisma": {
+    "schema": "."
   }
 }
