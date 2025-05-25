@@ -9,7 +9,6 @@ import reactHooksPlugin from "eslint-plugin-react-hooks";
 import prettierPlugin from "eslint-plugin-prettier";
 import jestPlugin from "eslint-plugin-jest";
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -37,9 +36,9 @@ const eslintBaseConfig = [
       globals: {
         process: "readonly",
         __dirname: "readonly",
-        require: "readonly"
-      }
-    }
+        require: "readonly",
+      },
+    },
   },
 
   // TypeScript + parser
@@ -49,6 +48,23 @@ const eslintBaseConfig = [
       parser: tsParser,
       parserOptions: {
         project: "./tsconfig.json",
+      },
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        //...js.configs.recommended.languageOptions.globals,
+        process: "readonly",
+        __dirname: "readonly",
+        require: "readonly",
+        module: "readonly",
+        exports: "readonly",
+        __filename: "readonly",
+        Buffer: "readonly",
+        global: "readonly",
+        setTimeout: "readonly",
+        clearTimeout: "readonly",
+        setInterval: "readonly",
+        clearInterval: "readonly",
       },
     },
     plugins: {
@@ -108,7 +124,7 @@ const eslintBaseConfig = [
     rules: {
       ...jestPlugin.configs.recommended.rules,
     },
-  }
+  },
 ];
 
 export default eslintBaseConfig;
