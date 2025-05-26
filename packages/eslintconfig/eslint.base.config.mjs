@@ -117,7 +117,8 @@ const eslintBaseConfig = [
         expect: true,
         beforeEach: true,
         afterEach: true,
-        vi: true, // optional: for Vitest
+        beforeAll: true,
+        afterAll: true,
         jest: true,
       },
     },
