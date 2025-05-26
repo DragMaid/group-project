@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, User } from "@prisma/client";
 import { createTestUser } from "../testUtils";
 
 const prisma = new PrismaClient();
@@ -13,7 +13,7 @@ afterAll(async () => {
 });
 
 describe("User model", () => {
-  let user: any;
+  let user: User;
 
   test("should create a user with valid email", async () => {
     user = await createTestUser({

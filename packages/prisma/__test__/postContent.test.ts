@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, PostContent } from "@prisma/client";
 import {
   createTestUser,
   createTestPost,
@@ -22,7 +22,7 @@ afterAll(async () => {
 });
 
 describe("Post Content model", () => {
-  let postContent: any;
+  let postContent: PostContent;
 
   test("should create a post content with valid data", async () => {
     const user = await createTestUser();

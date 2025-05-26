@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Department } from "@prisma/client";
 import { createTestDepartment } from "../testUtils";
 
 const prisma = new PrismaClient();
@@ -15,7 +15,7 @@ afterAll(async () => {
 });
 
 describe("Department model", () => {
-  let department: any;
+  let department: Department;
 
   test("should create a department record with valid data", async () => {
     department = await createTestDepartment({

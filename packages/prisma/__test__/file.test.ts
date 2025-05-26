@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, File } from "@prisma/client";
 import { createTestFile } from "../testUtils";
 
 const prisma = new PrismaClient();
@@ -13,7 +13,7 @@ afterAll(async () => {
 });
 
 describe("File model", () => {
-  let file: any;
+  let file: File;
 
   test("should create a file with valid data", async () => {
     const name = "example.txt";

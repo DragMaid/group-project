@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Follow } from "@prisma/client";
 import { createTestUser } from "../testUtils";
 
 const prisma = new PrismaClient();
@@ -13,7 +13,7 @@ afterAll(async () => {
 });
 
 describe("Follow model", () => {
-  let follow: any;
+  let follow: Follow;
 
   test("should create a follow relationship", async () => {
     const user1 = await createTestUser();

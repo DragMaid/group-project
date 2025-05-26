@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, User, Post } from "@prisma/client";
 import {
   createTestUser,
   createTestPost,
@@ -23,8 +23,8 @@ afterAll(async () => {
 });
 
 describe("Post Actions models", () => {
-  let user: any;
-  let post: any;
+  let user: User;
+  let post: Post;
 
   test("should create a rating for a post", async () => {
     user = await createTestUser();
