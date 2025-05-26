@@ -13,14 +13,6 @@
       "module": "CommonJS"
     }
   },
-  "include": [
-    "./**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    ".turbo",
-    "coverage",
-    "dist",
-    "migrations"
-  ]
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", ".turbo", "coverage", "dist", "migrations"]
 }
