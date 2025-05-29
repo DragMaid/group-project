@@ -1,0 +1,34 @@
+model Post {
+  id             String          @id @default(cuid())
+  name           String
+  description    String          @default("")
+  imgUrl         String          @default("storage/post/default.png")
+  creatorId      String
+  subjectId      String
+  bookmarks      Bookmark[]
+  comments       Comment[]
+  contentReports ContentReport[]
+  creator        User            @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  subject        Subject         @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  postContents   PostContent[]
+  ratings        Rating[]
+}
+
+model PostContent {
+  postId String
+  fileId String
+  file   File   @relation(fields: [fileId], references: [id], onDelete: Cascade)
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  @@id([postId, fileId])
+}
+
+model File {
+  id           String        @id @default(cuid())
+  name         String
+  url          String        @unique
+  type         String
+  size         Int
+  createdAt    DateTime      @default(now())
+  postContents PostContent[]
+}

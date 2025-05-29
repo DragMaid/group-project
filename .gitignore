@@ -42,3 +42,10 @@
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vscode
+**/dist/
+
+**/venv
+**/.venv
+**/.site-packages

@@ -1,0 +1,29 @@
+{
+  "name": "@db",
+  "scripts": {
+    "migrate": "prisma migrate dev",
+    "generate": "prisma generate",
+    "reset": "prisma migrate reset",
+    "push": "prisma db push",
+    "pull": "prisma db pull",
+    "studio": "prisma studio",
+    "format": "prisma format",
+    "test": "pnpm jest --coverage --runInBand",
+    "seed": "pnpm ts-node ./seed.ts"
+  },
+  "dependencies": {
+    "tsconfig": "workspace:*",
+    "eslintconfig": "workspace:*",
+    "ts-node": "^10.0.0",
+    "@prisma/client": "^6.8.2",
+    "prisma": "^6.8.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.0.0",
+    "@prisma/client": "^6.8.2",
+    "prisma": "^6.8.2"
+  },
+  "prisma": {
+    "schema": "."
+  }
+}

@@ -1,0 +1,24 @@
+model User {
+  id             String          @id @map("linked_account")
+  name           String          @unique
+  avatarUrl      String          @default("storage/user/default.png")
+  createdAt      DateTime        @default(now())
+  bookmarks      Bookmark[]
+  comments       Comment[]
+  contentReports ContentReport[]
+  followers      Follow[]        @relation("FollowerRelation")
+  followed       Follow[]        @relation("FollowedRelation")
+  notifications  Notification[]
+  posts          Post[]
+  ratings        Rating[]
+}
+
+model Follow {
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+  follower    User     @relation("FollowerRelation", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("FollowedRelation", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@id([followerId, followingId])
+}

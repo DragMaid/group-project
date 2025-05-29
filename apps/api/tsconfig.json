@@ -1,7 +1,7 @@
 {
   "extends": "tsconfig/tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "dist"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "dist"]

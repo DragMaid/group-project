@@ -1,0 +1,18 @@
+{
+  "extends": "tsconfig/tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "include": ["./**/*.ts"],
+  "exclude": ["node_modules", ".turbo", "coverage", "dist", "migrations"]
+}
